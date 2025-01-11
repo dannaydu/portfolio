@@ -1,3 +1,109 @@
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.Intro {
+  flex: 1;
+  max-width: 600px;
+}
+
+.orbital-menu {
+  flex-shrink: 0;
+  width: 300px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .orbital-menu {
+      width: 250px;
+      transform: scale(0.8);
+  }
+
+  .Intro {
+      max-width: 90%;
+      text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .orbital-menu {
+      width: 250px;
+      transform: scale(0.8);
+  }
+
+  .Intro {
+      max-width: 90%;
+      text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .orbital-menu {
+      width: 250px;
+      transform: scale(0.8);
+  }
+
+  .Intro {
+      max-width: 90%;
+      text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .orbital-menu {
+      width: 250px;
+      transform: scale(0.8);
+  }
+
+  .Intro {
+      max-width: 90%; 
+      text-align: center; 
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+      flex-direction: column; 
+      gap: 20px; 
+  }
+
+  .orbital-menu {
+      order: 2; 
+      transform: translate(0, 0) scale(0.7); 
+  }
+
+  .Intro {
+      order: 1; 
+  }
+}
+
+
+
 .Intro {
   text-align: left;
   color: white;
@@ -130,3 +236,240 @@
 #tiger-head:hover {
     background-color: orange;
 }
+
+@keyframes appear {
+  0% {
+    top: 0;
+    transform-origin: 5rem 0;
+  }
+  100% {
+    top: -25rem;
+    transform-origin: 5rem 25rem;
+  }
+}
+@keyframes menu-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.orbital-menu {
+  position: absolute;
+    top: 50%;
+    right: 15%; 
+    transform: translateY(-60%) scale(0.6); 
+    z-index: 2; 
+}
+.orbital-menu__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: menu-rotation linear 60s infinite;
+}
+
+
+.orbital-menu__list:hover {
+  animation-play-state: paused;
+}
+.orbital-menu__list:hover .orbital-menu__link > * {
+  animation-play-state: paused;
+}
+.orbital-menu__item {
+  position: absolute;
+  animation: appear 2s forwards;
+  left: -5rem;
+  top: 0;
+  transform-origin: 5rem 0;
+}
+
+.orbital-menu__item:nth-child(2) {
+  animation-delay: 0.1s;
+  transform: rotate(45deg);
+}
+.orbital-menu__item:nth-child(2) .orbital-menu__link {
+  transform: rotate(-45deg);
+}
+.orbital-menu__item:nth-child(2) .orbital-menu__link:before {
+  background: transparent;
+  animation-delay: 0.33s;
+  color: white;
+  text-shadow: #f2f2f2 0 0 10px;
+  cursor: auto;
+  box-shadow: #f2f2f2 0 0 20px;
+  border-radius: 50%;
+}
+.orbital-menu__item:nth-child(3) {
+  animation-delay: 0.2s;
+  transform: rotate(90deg);
+}
+.orbital-menu__item:nth-child(3) .orbital-menu__link {
+  transform: rotate(-90deg);
+}
+.orbital-menu__item:nth-child(3) .orbital-menu__link:before {
+  background: transparent;
+  animation-delay: 0.33s;
+  color: white;
+  text-shadow: #f2f2f2 0 0 10px;
+  cursor: auto;
+  box-shadow: #f2f2f2 0 0 20px;
+  border-radius: 50%;
+}
+.orbital-menu__item:nth-child(4) {
+  animation-delay: 0.3s;
+  transform: rotate(135deg);
+}
+.orbital-menu__item:nth-child(4) .orbital-menu__link {
+  transform: rotate(-135deg);
+}
+.orbital-menu__item:nth-child(4) .orbital-menu__link:before {
+  background: transparent;
+  animation-delay: 0.33s;
+  color: white;
+  text-shadow: #f2f2f2 0 0 10px;
+  cursor: auto;
+  box-shadow: #f2f2f2 0 0 20px;
+  border-radius: 50%;
+}
+.orbital-menu__item:nth-child(5) {
+  animation-delay: 0.4s;
+  transform: rotate(180deg);
+}
+.orbital-menu__item:nth-child(5) .orbital-menu__link {
+  transform: rotate(-180deg);
+}
+.orbital-menu__item:nth-child(5) .orbital-menu__link:before {
+  background: transparent;
+  animation-delay: 0.33s;
+  color: white;
+  text-shadow: #f2f2f2 0 0 10px;
+  cursor: auto;
+}
+
+.orbital-menu__link {
+  position: relative;
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  box-shadow: #f2f2f2 0 0 20px;
+  border-radius: 50%;
+}
+.orbital-menu__link:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border-radius: 50%;
+  text-shadow: #f2f2f2 0 0 4px;
+  color: white;
+  cursor: auto;
+  box-shadow: #f2f2f2 0 0 3.5px;
+}
+
+.orbital-menu__link > * {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: menu-rotation linear 60s infinite;
+  animation-direction: reverse;
+  transition: 250ms ease all;
+  content: "";
+}
+.orbital-menu__link-text {
+  opacity: 0;
+  text-align: center;
+  color: #fff;
+  text-shadow: #f2f2f2 0 0 10px;
+  font-size: 25px;
+  font-family: 'Space mono', monospace;
+}
+
+.orbital-menu__link:hover:before {
+  animation-play-state: paused;
+  filter: brightness(0.7);
+}
+.orbital-menu__link:hover .orbital-menu__link-icon {
+  opacity: 0;
+}
+
+.orbital-menu__link:hover .orbital-menu__link-text {
+  opacity: 1;
+  text-shadow: #f2f2f2 0 0 10px;
+}
+
+.orbital-menu__link:hover .orbital-menu__link-icon svg {
+  opacity: 0;
+}
+.orbital-menu__link-text {
+  z-index: 2;
+}
+
+.orbital-menu__link-icon {
+  z-index: 1;
+}
+.orbital-menu__center-pic {
+  position: relative;
+  width: 18rem;
+  height: 18rem;
+  overflow: hidden;
+  border-radius: 4rem;
+}
+
+.orbital-menu__center-pic > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 500ms ease;
+}
+
+.orbital-menu__center-pic > #danna {
+  opacity: 0;
+}
+
+.orbital-menu__center-pic > #astronaunt {
+  opacity: 1;
+}
+
+.orbital-menu__center-pic:hover > #danna {
+  opacity: 1;
+}
+
+.orbital-menu__center-pic:hover > #astronaunt {
+  opacity: 0;
+}
+
+.orbital-menu__link-icon {
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+.orbital-menu__link-icon svg {
+  stroke: white;
+  font-size: large;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+.orbital-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
