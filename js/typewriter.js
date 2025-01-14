@@ -54,3 +54,37 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
 };
+
+function debounce(func, wait = 10) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+document.querySelectorAll('.photo-danna').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top;  // y position within the element
+
+        // Calculate rotation based on mouse position
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = -((x - centerX) / centerX) * 10; // Max 5deg rotation
+        const rotateX = ((y - centerY) / centerY) * 10; // Max 5deg rotation
+
+        // Apply the transformation
+        card.style.transform = `perspective(1000px) 
+                                rotateX(${rotateX}deg) 
+                                rotateY(${rotateY}deg) 
+                                translateZ(30px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        // Reset the transformation when mouse leaves the card
+        card.style.transform = 'none';
+    });
+});
+

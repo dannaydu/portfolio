@@ -1,0 +1,252 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding-inline: 60px;
+
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.topnav {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+    overflow: hidden;
+    text-align: center;
+    justify-self: center;
+    justify-content: center;
+    position: relative;
+
+
+}
+
+
+
+/* Style the links inside the navigation bar */
+.topnav a {
+
+    color: #f9f6f6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: "poppins";
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: white;
+    color: black;
+}
+
+.typewrite {
+    text-decoration: none;
+}
+
+.typewrite>.wrap {
+    border-right: 0.08em solid #fff;
+    color: rgb(249, 249, 249);
+    text-decoration: none;
+    text-shadow: #f2f2f2 1px 0 1.5px;
+}
+
+
+/* Timeline  */
+.pt-100 {
+    padding-top: 40px;
+}
+
+.pb-100 {
+    padding-bottom: 100px;
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 16px;
+}
+
+.section-title h4 {
+    text-transform: capitalize;
+    font-size: 50px;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: #f2f2f2 1px 0 5px;
+}
+
+.section-title h4:before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 2px;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30px;
+    box-shadow: white 1px 0 5px;
+}
+
+.section-title h4:after {
+    position: absolute;
+    background-color: #ffffff;
+    content: "";
+    width: 10px;
+    height: 10px;
+    bottom: -4px;
+    left: 50%;
+    margin-left: -5px;
+    border-radius: 50%;
+    box-shadow: white 1px 0 5px;
+}
+
+ul.timeline-list {
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+
+}
+
+ul.timeline-list:before {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: #ffffff;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+ul.timeline-list li {
+    position: relative;
+    clear: both;
+    display: table;
+    margin: 0 auto;
+}
+
+.experience-card {
+    border: 4px solid #ffffff;
+    background-color: #050505f1;
+    box-shadow: #ffffff 5px 0 10px;
+    width: 50%;
+
+
+}
+
+ul.timeline-list li .experience-card {
+    width: 45%;
+    color: #ffffff;
+    padding: 30px;
+    float: left;
+    text-align: left;
+
+}
+
+
+ul.timeline-list li:nth-child(2n) .experience-card {
+    float: right;
+    text-align: left;
+    padding: 30px;
+    width: 45%;
+
+}
+
+
+.exp-name {
+    font-family: "poppins";
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: #f2f2f2 1px 0 4px;
+    padding-bottom: 30px;
+}
+
+ul.timeline-list li:before {
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: #fffefe;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: #ffffff 1px 0 5px;
+}
+
+.exp-year {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: poppins;
+    color: #ff0000;
+    text-shadow: #d86666 1px 0 4px;
+}
+
+@media screen and (max-width: 767px) {
+
+    ul.timeline-list {
+        position: relative;
+
+    }
+
+    ul.timeline-list li .experience-card {
+        width: 100%;
+        float: right;
+        text-align: center;
+    }
+
+    .exp-name {
+        padding-bottom: 60px;
+    }
+
+    ul.timeline-list li:nth-child(2n) .experience-card {
+        float: right;
+        text-align: center;
+        width: 100%;
+
+
+    }
+
+}
