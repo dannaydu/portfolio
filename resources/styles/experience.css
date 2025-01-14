@@ -296,6 +296,12 @@ ul.timeline-list li:before {
         
     }
 
+    .topnav {
+        display: block;
+        max-width: 75%;
+        margin: 0 auto;
+    }
+
     
 
 }

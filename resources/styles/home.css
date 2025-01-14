@@ -225,6 +225,18 @@ body::before {
   }
 }
 
+@media screen and (max-width: 767px) {
+  .topnav { 
+    max-width: 75%;
+    justify-content: space-between;
+  }
+
+  .Intro {
+    max-width: 75%;
+  }
+  
+}
+
 
 
 
