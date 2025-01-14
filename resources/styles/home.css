@@ -2,7 +2,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  
 }
 
 
@@ -28,8 +28,9 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow: hidden;
+  overflow: auto;
   gap: 60px;
+  align-items: center;
 
 }
 
@@ -51,6 +52,7 @@ body::before {
   text-align: center;
   justify-self: center;
   justify-content: center;
+  padding-inline: 20px;
 
 
 
@@ -61,10 +63,10 @@ body::before {
   flex: 1;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  overflow: hidden;
+  overflow: auto;
   margin-top: 2%;
 }
 
@@ -82,6 +84,7 @@ body::before {
   min-width: 410px;
   margin: 0;
   size: 100%;
+  padding-inline: 20px;
 
 
 }

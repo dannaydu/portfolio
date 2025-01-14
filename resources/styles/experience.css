@@ -58,10 +58,10 @@ body::before {
     text-align: center;
     justify-self: center;
     justify-content: center;
-    position: relative;
-
-
-}
+    padding-inline: 20px;
+  
+  
+  }
 
 
 
@@ -227,7 +227,7 @@ ul.timeline-list li:nth-child(2n) .experience-card {
     display: block;
     padding-bottom: 30px;
     text-shadow: #f2f2f2 1px 0 3px;
-    color: hsl(0, 8%, 77%);
+    color: hsl(0, 14%, 86%);
 
 }
 
@@ -273,7 +273,7 @@ ul.timeline-list li:before {
         text-align: center;
     }
 
-    .exp-name {
+    .exp-employer {
         padding-bottom: 60px;
     }
 
@@ -284,5 +284,18 @@ ul.timeline-list li:before {
 
 
     }
+
+    ul.timeline-list:before {
+       
+        background-color: transparent;
+        
+    }
+
+    ul.timeline-list li:before {
+        opacity: 0;
+        
+    }
+
+    
 
 }
