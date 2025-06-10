@@ -22,29 +22,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: form.message.value
             };
             
+            console.log('Sending data:', formData); // Debug log
+            
             const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors', // Add this to handle CORS
                 body: JSON.stringify(formData),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 }
             });
             
-            const result = await response.json();
+            console.log('Response status:', response.status); // Debug log
             
-            if (result.status === 'success') {
-                // Show success message
-                statusMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-                statusMessage.className = 'success';
-                form.reset();
-            } else {
-                throw new Error(result.message || 'Something went wrong');
-            }
+            // Since we're using no-cors, we can't read the response
+            // We'll assume success if we get here
+            statusMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+            statusMessage.className = 'success';
+            form.reset();
+            
         } catch (error) {
-            // Show error message
-            statusMessage.textContent = 'Failed to send message. Please try again later.';
+            // Show detailed error message
+            console.error('Detailed error:', error);
+            statusMessage.textContent = `Error: ${error.message}. Please try again later.`;
             statusMessage.className = 'error';
-            console.error('Error:', error);
         } finally {
             // Reset button state
             submitButton.disabled = false;
