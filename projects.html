@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="resources/styles/projects.css">
     <style>
         #background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -34,6 +34,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,19 +51,76 @@
             <a href="contact.html">Contact</a>
         </div>
 
-        <main class="content-container">
-            <div class="comming-soon">
-                <h1>Projects</h1>
-                <p>Coming soon!</p>
+        <section class="projects pt-100 pb-100" id="projects">
+            <div class="row">
+                <div class="col-xl-8 mx-auto text-center">
+                    <div class="section-title">
+                        <h4>Projects</h4>
+                        <p></p>
+                    </div>
+                </div>
             </div>
-            
-            <section class="photo-cat">
-            <img src="resources/images/catwhat.jpg" alt="coming soon">
-            </section>
-        </main>
+            <div class="row">
+                <div class="col-xl-12">
+                    <ul class="timeline-list">
+                        <!-- Seam Carving Image Re-sizer -->
+                        <li>
+                            <div class="project-card">
+                                <div><span class="project-year">Oct. 2024 - Dec. 2024</span></div>
+                                <div class="project-name">
+                                    <h4>Seam Carving Image Re-sizer</h4>
+                                </div>
+                                <div><span class="project-tech">Python, Flask, HTML/CSS, JavaScript</span></div>
+                                <div class="project-info">
+                                    <ul>
+                                        <li>Developed a full-stack web application using Python, Flask, and the seam carving algorithm, enabling users to upload images, specify resizing parameters, and download optimized results.</li>
+                                        <li>Leveraged Pillow and NumPy to implement intelligent content-aware resizing by dynamically removing horizontal and vertical seams, preserving critical visual details.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Ride-sharing Data Analysis -->
+                        <li>
+                            <div class="project-card">
+                                <div><span class="project-year">November 2024</span></div>
+                                <div class="project-name">
+                                    <h4>Ride-sharing Data Analysis and Machine Learning</h4>
+                                </div>
+                                <div><span class="project-tech">R</span></div>
+                                <div class="project-info">
+                                    <ul>
+                                        <li>Analyzed Chicago ride-sharing data in RStudio, using the sf package for spatial analysis and infer package for hypothesis testing.</li>
+                                        <li>Applied LASSO and Ridge regression in tidymodels for predictive modeling and cluster analysis for pattern detection.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Avogadro's Number Estimator -->
+                        <li>
+                            <div class="project-card">
+                                <div><span class="project-year">May 2024</span></div>
+                                <div class="project-name">
+                                    <h4>Avogadro's Number Estimator</h4>
+                                </div>
+                                <div><span class="project-tech">Java</span></div>
+                                <div class="project-info">
+                                    <ul>
+                                        <li>Created a Java program to analyze video data of polystyrene beads undergoing Brownian motion, applying image processing techniques.</li>
+                                        <li>Calculated Avogadro's number and Boltzmann's constant using Einstein's theory of Brownian motion.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Scripts -->
+    <script src="js/experience-card.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace();

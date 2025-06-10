@@ -2,12 +2,13 @@ body,
 html {
   margin: 0;
   padding: 0;
-  
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body {
-  height: 100vh;
-
+  position: relative;
 }
 
 body::before {
@@ -26,10 +27,11 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow: auto;
-  gap: 60px;
-  align-items: center;
-
+  gap: 20px;
+  padding-inline: 60px;
+  z-index: 1;
+  background: transparent;
+  min-height: 100vh;
 }
 
 #background {
@@ -51,9 +53,6 @@ body::before {
   justify-self: center;
   justify-content: center;
   padding-inline: 20px;
-
-
-
 }
 
 .content-container {
@@ -68,8 +67,6 @@ body::before {
   margin-top: 2%;
 }
 
-
-
 .Intro {
   color: white;
   font-family: Poppins;
@@ -83,8 +80,6 @@ body::before {
   margin: 0;
   size: 100%;
   padding-inline: 20px;
-
-
 }
 
 #name {
@@ -98,8 +93,6 @@ body::before {
   font-size: 15px;
   margin-bottom: 0%;
 }
-
-
 
 #university {
   color: rgb(255, 128, 0);
@@ -118,10 +111,8 @@ body::before {
   word-wrap: break-word;
 }
 
-
 /* Style the links inside the navigation bar */
 .topnav a {
-
   color: #f9f6f6;
   text-align: center;
   padding: 14px 16px;
@@ -205,7 +196,6 @@ body::before {
   margin-top: 2%;
 }
 
-
 .comming-soon {
   color: white;
   text-shadow: #f2f2f2 1px 0 5px;
@@ -228,7 +218,6 @@ body::before {
   display: flex;
   justify-content: center;
   padding: 5%
-  
 }
 
 .photo-cat img {
@@ -240,23 +229,20 @@ body::before {
   transition: transform 0.3s ease;
   transform-style: preserve-3d;
   perspective: 1000px;
-
 }
 
 .photo-cat:hover {
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
-
-
 
 @keyframes fadeInUp {
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -279,9 +265,212 @@ body::before {
     padding-right: 30px;
     size: scale(0.8);
   }
+}
 
-  
-  
+/* Projects Section Styles */
+.pt-100 {
+  padding-top: 40px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+.section-title {
+  margin-bottom: 60px;
+}
+
+.section-title p {
+  color: #bbb9b9;
+  font-size: 16px;
+}
+
+.section-title h4 {
+  text-transform: capitalize;
+  font-size: 50px;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: #f2f2f2 1px 0 5px;
+}
+
+.section-title h4:before {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 2px;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 50%;
+  margin-left: -30px;
+  box-shadow: white 1px 0 5px;
+}
+
+.section-title h4:after {
+  position: absolute;
+  background-color: #ffffff;
+  content: "";
+  width: 10px;
+  height: 10px;
+  bottom: -4px;
+  left: 50%;
+  margin-left: -5px;
+  border-radius: 50%;
+  box-shadow: white 1px 0 5px;
+}
+
+/* Timeline List Styles */
+ul.timeline-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+}
+
+ul.timeline-list:before {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: #ffffff;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+ul.timeline-list li {
+  position: relative;
+  clear: both;
+  display: table;
+  margin: 0 auto;
+}
+
+/* Project Card Styles */
+.project-card {
+  border: 4px solid #ffffff;
+  background-color: #050505b6;
+  box-shadow: #ffffff 5px 0 10px;
+  width: 45%;
+  color: #ffffff;
+  padding: 30px;
+  float: left;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+ul.timeline-list li:nth-child(2n) .project-card {
+  float: right;
+  text-align: left;
+}
+
+.project-name {
+  font-family: "poppins";
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: #f2f2f2 1px 0 4px;
+}
+
+.project-tech {
+  font-family: "poppins";
+  font-style: italic;
+  font-size: 15px;
+  display: block;
+  padding-bottom: 30px;
+  text-shadow: #f2f2f2 1px 0 3px;
+  color: hsl(0, 14%, 86%);
+}
+
+.project-year {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: poppins;
+  color: #ff0000;
+  text-shadow: #d86666 1px 0 4px;
+}
+
+.project-info {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #f2f2f2;
+}
+
+.project-info ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.project-info li {
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+ul.timeline-list li:before {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-color: #fffefe;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: #ffffff 1px 0 5px;
+}
+
+/* Hover effect for project cards */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: #ffffff 8px 0 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 767px) {
+  ul.timeline-list {
+    position: relative;
+  }
+
+  ul.timeline-list li .project-card {
+    width: 100%;
+    float: right;
+    text-align: center;
+  }
+
+  ul.timeline-list li:nth-child(2n) .project-card {
+    float: right;
+    text-align: center;
+    width: 100%;
+  }
+
+  ul.timeline-list:before {
+    background-color: transparent;
+  }
+
+  ul.timeline-list li:before {
+    opacity: 0;
+  }
+
+  .topnav {
+    max-width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    size: scale(0.5);
+  }
+
+  .main-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    size: scale(0.8);
+  }
+
+  .project-info ul {
+    text-align: left;
+  }
 }
 
 
