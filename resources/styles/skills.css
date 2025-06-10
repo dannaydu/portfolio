@@ -43,38 +43,6 @@ body::before {
     min-height: 100vh;
 }
 
-.topnav {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    z-index: 10;
-    overflow: hidden;
-    text-align: center;
-    justify-self: center;
-    justify-content: center;
-    padding-inline: 20px;
-}
-
-.topnav a {
-    color: var(--text-color);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: "poppins";
-    transition: all 0.3s ease;
-}
-
-.topnav a:hover {
-    background-color: var(--nav-hover-bg);
-    color: var(--nav-hover-color);
-}
-
-.topnav a.active {
-    background-color: var(--nav-active-bg);
-    color: var(--nav-active-color);
-}
-
 /* Skills Section Styles */
 .section-title {
     margin-bottom: 60px;

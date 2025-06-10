@@ -43,37 +43,6 @@ body::before {
     min-height: 100vh;
 }
 
-.topnav {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    z-index: 10;
-    overflow: hidden;
-    text-align: center;
-    justify-self: center;
-    justify-content: center;
-    padding-inline: 20px;
-}
-
-.topnav a {
-    color: #f9f6f6;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: "poppins";
-}
-
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav a.active {
-    background-color: white;
-    color: black;
-}
-
 /* Contact Section Styles */
 .contact-section {
     max-width: 800px;
