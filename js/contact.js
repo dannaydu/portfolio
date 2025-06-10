@@ -1,50 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
+    const submitButton = document.getElementById('submitButton');
+    const statusMessage = document.getElementById('statusMessage');
 
-    form.addEventListener('submit', async function(e) {
+    // Replace this URL with your Google Apps Script Web App URL after deployment
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzC1_fR4TUeca0bSguAdsybQa-i1dOXwFm5ZgSK0FXyDm5zEoro4F900erD8eGl79jsg/exec';
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-            timestamp: new Date().toISOString()
-        };
-
-        // Disable submit button and show loading state
-        const submitBtn = form.querySelector('.submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
+        
+        // Show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        statusMessage.textContent = '';
+        statusMessage.className = '';
+        
         try {
-            // Replace with your Google Apps Script Web App URL
-            const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value
+            };
+            
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
+                body: JSON.stringify(formData),
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
+                    'Content-Type': 'application/json'
+                }
             });
-
-            if (response.ok) {
+            
+            const result = await response.json();
+            
+            if (result.status === 'success') {
                 // Show success message
-                formStatus.textContent = 'Thank you for your message! I will get back to you soon.';
-                formStatus.className = 'form-status success';
+                statusMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                statusMessage.className = 'success';
                 form.reset();
             } else {
-                throw new Error('Failed to send message');
+                throw new Error(result.message || 'Something went wrong');
             }
         } catch (error) {
             // Show error message
-            formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
-            formStatus.className = 'form-status error';
+            statusMessage.textContent = 'Failed to send message. Please try again later.';
+            statusMessage.className = 'error';
             console.error('Error:', error);
         } finally {
-            // Re-enable submit button
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            // Reset button state
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Send Message';
         }
     });
 }); 
