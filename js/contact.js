@@ -2,6 +2,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const statusMessage = document.getElementById('statusMessage');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const nameCount = document.getElementById('nameCount');
+    const emailCount = document.getElementById('emailCount');
+    const messageCount = document.getElementById('messageCount');
+
+    // Function to update character count
+    function updateCharCount(input, countElement, maxLength) {
+        const count = input.value.length;
+        countElement.textContent = count;
+        
+        // Update color based on remaining characters
+        const remaining = maxLength - count;
+        const countDisplay = countElement.parentElement;
+        
+        if (remaining <= maxLength * 0.1) { // Less than 10% remaining
+            countDisplay.className = 'char-count danger';
+        } else if (remaining <= maxLength * 0.25) { // Less than 25% remaining
+            countDisplay.className = 'char-count warning';
+        } else {
+            countDisplay.className = 'char-count';
+        }
+    }
+
+    // Add input event listeners for character counting
+    nameInput.addEventListener('input', () => updateCharCount(nameInput, nameCount, 50));
+    emailInput.addEventListener('input', () => updateCharCount(emailInput, emailCount, 100));
+    messageInput.addEventListener('input', () => updateCharCount(messageInput, messageCount, 500));
 
     // Replace this URL with your Google Apps Script Web App URL after deployment
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzC1_fR4TUeca0bSguAdsybQa-i1dOXwFm5ZgSK0FXyDm5zEoro4F900erD8eGl79jsg/exec';
