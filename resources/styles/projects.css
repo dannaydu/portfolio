@@ -316,7 +316,36 @@ ul.timeline-list li {
   padding: 30px;
   float: left;
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 215, 0, 0.2),  /* Gold color with transparency */
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.project-card:hover::before {
+  left: 150%;
+}
+
+.project-card:hover {
+  box-shadow: #ffd700 8px 0 15px;  /* Gold shadow */
+  border-color: #ffd700;  /* Gold border */
+  background-color: #0a0a0ab6;
 }
 
 ul.timeline-list li:nth-child(2n) .project-card {
@@ -382,46 +411,97 @@ ul.timeline-list li:before {
   box-shadow: #ffffff 1px 0 5px;
 }
 
-/* Hover effect for project cards */
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: #ffffff 8px 0 15px;
-}
-
 /* Responsive Design */
 @media screen and (max-width: 767px) {
   ul.timeline-list {
     position: relative;
+    padding: 0;
   }
 
-  ul.timeline-list li .project-card {
-    width: 100%;
+  ul.timeline-list:before {
+    left: 0;
+    background-color: #ffffff;
+  }
+
+  ul.timeline-list li {
+    margin-bottom: 30px;
+    display: block;
+  }
+
+  ul.timeline-list li:before {
+    left: 0;
+    opacity: 1;
+  }
+
+  .project-card {
+    width: calc(100% - 45px);
     float: right;
-    text-align: center;
+    text-align: left;
+    margin-left: 45px;
+    padding: 20px;
   }
 
   ul.timeline-list li:nth-child(2n) .project-card {
     float: right;
-    text-align: center;
-    width: 100%;
+    text-align: left;
+    width: calc(100% - 45px);
+    margin-left: 45px;
   }
 
-  ul.timeline-list:before {
-    background-color: transparent;
-  }
-
-  ul.timeline-list li:before {
-    opacity: 0;
+  .project-card:hover {
+    transform: translateY(-3px);
   }
 
   .main-container {
-    padding-left: 30px;
-    padding-right: 30px;
-    size: scale(0.8);
+    padding: 20px;
+  }
+
+  .section-title h4 {
+    font-size: 35px;
   }
 
   .project-info ul {
     text-align: left;
+    padding-left: 15px;
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+
+  .project-tech {
+    font-size: 14px;
+  }
+
+  .project-info {
+    font-size: 14px;
+  }
+}
+
+/* Add styles for very small screens */
+@media screen and (max-width: 480px) {
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .section-title h4 {
+    font-size: 28px;
+  }
+
+  .project-name {
+    font-size: 16px;
+  }
+
+  .project-tech {
+    font-size: 13px;
+  }
+
+  .project-info {
+    font-size: 13px;
   }
 }
 
