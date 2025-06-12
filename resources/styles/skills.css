@@ -278,6 +278,10 @@ body::before {
     width: 40%;
 }
 
+.skill-level.full::after {
+    width: 100%;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
     .skills-grid {
