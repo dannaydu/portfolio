@@ -35,7 +35,7 @@ body::before {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap: 20px;
     padding-inline: 60px;
     z-index: 1;
@@ -46,8 +46,9 @@ body::before {
 /* Contact Section Styles */
 .contact-section {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    margin: 40px auto;
+    padding: 20px;
+    width: 100%;
 }
 
 .section-title {
@@ -73,9 +74,26 @@ body::before {
 
 .section-title p.subtitle {
     color: #ff0000;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 20px;
+    margin-top: 15px;
     text-shadow: #d86666 1px 0 4px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    font-weight: 500;
+    line-height: 1.5;
+    background: linear-gradient(90deg, #ff0000, #ff3333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
 }
 
 .section-title h1:before {
@@ -105,23 +123,57 @@ body::before {
 
 .contact-container {
     background: rgba(5, 5, 5, 0.7);
-    border: 4px solid #ffffff;
-    border-radius: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
     padding: 40px;
     box-shadow: #ffffff 5px 0 10px;
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 0, 0, 0.1),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.contact-container:hover::before {
+    left: 150%;
+}
+
+.contact-container:hover {
+    box-shadow: #ff0000 8px 0 15px;
+    border-color: #ff0000;
+    transform: translateY(-5px);
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-group label {
@@ -129,6 +181,40 @@ body::before {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     text-shadow: #f2f2f2 1px 0 3px;
+    display: block;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ff0000;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .char-count {
@@ -138,78 +224,99 @@ body::before {
     font-size: 12px;
     color: #bbb9b9;
     font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
 }
 
 .char-count.warning {
     color: #ff6b6b;
+    text-shadow: #ff6b6b 0 0 5px;
 }
 
 .char-count.danger {
     color: #ff0000;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ffffff;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #ff0000;
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    text-shadow: #ff0000 0 0 5px;
 }
 
 .submit-btn {
     background: transparent;
     border: 2px solid #ffffff;
     color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 10px;
+    margin-top: 20px;
     text-shadow: #f2f2f2 1px 0 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
 }
 
 .submit-btn:hover {
-    background: #ffffff;
-    color: #000000;
-    box-shadow: #ffffff 0 0 15px;
+    background: #ff0000;
+    border-color: #ff0000;
+    color: #ffffff;
+    box-shadow: #ff0000 0 0 20px;
+    transform: translateY(-2px);
 }
 
 .form-status {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-status.success {
     display: block;
-    background: rgba(46, 204, 113, 0.2);
+    background: rgba(46, 204, 113, 0.1);
     border: 2px solid #2ecc71;
     color: #2ecc71;
+    box-shadow: #2ecc71 0 0 15px;
 }
 
 .form-status.error {
     display: block;
-    background: rgba(231, 76, 60, 0.2);
+    background: rgba(231, 76, 60, 0.1);
     border: 2px solid #e74c3c;
     color: #e74c3c;
+    box-shadow: #e74c3c 0 0 15px;
 }
 
 @media screen and (max-width: 768px) {
